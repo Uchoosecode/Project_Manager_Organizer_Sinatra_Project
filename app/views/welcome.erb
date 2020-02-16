@@ -1,23 +1,33 @@
-<div class="container">
-  <header><img src="images/corneal-small.png" class="img-responsive main-image"></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Sinatra Template Default Page</h2>
-
-    <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-    </div>
-
-    <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
-    </div>
-
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Manager Organizer</title>
+</head>
+      <body>
+         <div>
+            <h3>Welocme to The Project Manager's Organizer</h3>
+            <p>Sign Up or Login to start organizing your Projects!!!</p></div>
+            <form action="/managers" method="post">
+            <div>
+            <label for="name">Name: </label>
+              <input type="text", name="manager[name]", id="name">
+            </div>
+            <div>
+            <label for="email">Email: </label>
+              <input type="text", name="manager[email]", id="email">
+            </div>  
+            <div>
+            <label for="password">Password: </label>
+              <input type="text", name="manager[password]", id="password">
+            </div>
+              <input type="submit" value="Create Account">
+            </form>
+              <nav>
+                <ul>
+                  <li><a href="/login">Login</a></li>
+                </ul>
+              </nav>
+      </body>
+</html>
