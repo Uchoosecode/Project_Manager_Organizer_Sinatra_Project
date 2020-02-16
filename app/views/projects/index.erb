@@ -1,0 +1,9 @@
+<ul>
+
+    <% @projects.each do |project| %>
+        <li> <h4>Project Name:</h4> <%= project.name %> </li>
+        <li> <h4>Project Due Date:</h4> <%= project.due_date %> </li>
+        <li> <h4>Project Start Date:</h4> <%= project.start_date %> </li>
+        <% end %>
+
+</ul>
