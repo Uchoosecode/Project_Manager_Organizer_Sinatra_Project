@@ -1,0 +1,22 @@
+<h1>Edit Your Project</h1>
+
+<form action="/projects/<%= @projects.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div>
+        <label for="name">Project Name: </label>
+        <input type="text" name="projects[name]" :id="name" value="<%= @projects.name %>">
+    </div>
+    <div>
+        <label for="project_type">Project Type: </label>
+        <input type="text" name="projects[project_type]" :id="project_type" value="<%= @projects.project_type %> ">
+    </div>
+    <div>
+        <label for="start_date">Project Start Date: </label>
+        <input type="text" name="projects[start_date]" :id="start_date" value="<%= @projects.start_date %> ">
+    </div>
+    <div>
+        <label for="due_date">Project Due Date:</label>
+        <input type="text" name="projects[due_date]" :id="due_date" value="<%= @projects.due_date %> ">
+    </div>
+    <input type="submit" value="Edit Project">
+</form>
