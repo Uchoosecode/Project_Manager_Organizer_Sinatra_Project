@@ -1,0 +1,14 @@
+<h1><%= @projects.name %></h1>
+
+<p>Project Type: <%= @projects.project_type%> </p>
+<p>Project Start Date: <%= @projects.start_date%> </p>
+<p>Project Due Date: <%= @projects.due_date%> </p>
+
+<p>Edit <a href="/projects/<%= @projects.id %>/edit "><%= @projects.name %></a></p>
+
+<form action="/projects/<%= @projects.id %>" method="post">
+
+    <input type="hidden" name="_method" value="delete">
+
+    <input type="submit" value="Delete Project">
+</form>
