@@ -1,0 +1,21 @@
+<h1>Create a New Project</h1>
+
+<form action="/projects/new" method="post">
+    <div>
+        <label for="name">Project Name: </label>
+        <input type="text" name="projects[name]" :id="name">
+    </div>
+    <div>
+        <label for="project_type">Project Type: </label>
+        <input type="text" name="projects[project_type]" :id="project_type">
+    </div>
+    <div>
+        <label for="start_date">Project Start Date: </label>
+        <input type="text" name="projects[start_date]" :id="start_date">
+    </div>
+    <div>
+        <label for="due_date">Project Due Date:</label>
+        <input type="text" name="projects[due_date]" :id="due_date">
+    </div>
+    <input type="submit" value="Create Project">
+</form>
