@@ -1,0 +1,19 @@
+<h1>Update Your Account</h1>
+
+<form action="/manager/<%= @manager.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" name="manager[name]" :id="name" value="<%= @manager.name %>">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="text" name="manager[email]" :id="email" value="<%= @manager.email %> ">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" name="manager[password]" :id="password" value="<%= @manager.password %> ">
+    </div>
+    
+    <input type="submit" value="Update Account">
+</form>
