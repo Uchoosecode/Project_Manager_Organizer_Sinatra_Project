@@ -1,3 +1,4 @@
+
 require './config/environment'
 
 if ActiveRecord::Migrator.needs_migration?
@@ -6,7 +7,7 @@ end
 
 use Rack::MethodOverride
 
+use SessionsController
 use ManagersController
 use ProjectsController
-use SessionsController
 run ApplicationController
