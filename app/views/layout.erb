@@ -6,6 +6,25 @@
     <title>Project Manager Organizer</title>
 </head>
 <body>
+    <div class="">
+      <h4>current_manager: <%= current_manager ? current_manager.name : "no one logged in" %></h4>
+    </div>
+  <nav>
+    <ul>
+      <% if logged_in? %>
+      <li><form class="" action="/logout" method="post">
+        <input type="submit" name="" value="log out">
+      </form></li>
+
+      <li><form class="" action="/" method="post">
+        <input type="submit" value="Update Account">
+      </form></li>
+
+      <% else %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign up</a></li>
+
+      <% end %>
     <%= yield %>
 </body>
 </html>
