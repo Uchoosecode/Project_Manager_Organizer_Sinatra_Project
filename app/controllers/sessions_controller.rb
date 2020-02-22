@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
   
-    # get '/sign_up' do
-    #     erb :"/managers/new"
-    #   end
 
     get '/login' do
         erb :"/sessions/new"
