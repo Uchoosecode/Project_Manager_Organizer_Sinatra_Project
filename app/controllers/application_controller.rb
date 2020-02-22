@@ -5,8 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    # enable :sessions
-    # set :session_secret "0i1f2s3e4c5r6e7t8w9a0s1a2s3e4s5s6i7o8n9"
+    enable :sessions
+    set :session_secret, ENV["TOKEN"]{SecureRandom.hex(64)}
   end
 
   get "/" do
@@ -23,4 +23,9 @@ class ApplicationController < Sinatra::Base
       Manager.find_by(id: session[:manager_id])
     end
     
+    def redirect_not_logged_in
+      if !logged_in?
+        redirect '/'
+      end
+    end
 end
