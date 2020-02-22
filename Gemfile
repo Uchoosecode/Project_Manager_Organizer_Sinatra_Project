@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'dotenv'
 gem 'session'
+gem 'sysrandom'
 
 group :test do
   gem 'rspec'
