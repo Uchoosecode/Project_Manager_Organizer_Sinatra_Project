@@ -1,0 +1,20 @@
+<h1>Manager Sign Up Form</h1>
+
+<form action="/signup" method="post">
+    
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" name="managers[name]" :id="name">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="text" name="managers[email]" :id="email">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" name="managers[password]" :id="password">
+    </div>
+   
+    <input type="submit" value="Create Account">
+
+</form>
