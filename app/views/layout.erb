@@ -12,13 +12,17 @@
   <nav>
     <ul>
       <% if logged_in? %>
-      <li><form class="" action="/logout" method="post">
-        <input type="submit" name="" value="log out">
-      </form></li>
+        <li><form action="/projects" method="get">
+            <input type="submit" value="Home">
+        </form></li>
+        
+        <li><form class="" action="/logout" method="post">
+            <input type="submit" name="" value="Log Out">
+        </form></li>
 
-      <li><form class="" action="/" method="post">
-        <input type="submit" value="Update Account">
-      </form></li>
+        <li><form class="" action="/manager/edit" method="post">
+            <input type="submit" value="Update Account">
+        </form></li>
 
       <% else %>
         <li><a href="/login">Login</a></li>
