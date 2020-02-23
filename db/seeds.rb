@@ -1,6 +1,6 @@
-Manager.create(:name => "Mike", :email => "mikeproject@email.com", :password => "Mike")
-Manager.create(:name => "Peter", :email => "peterproject@email.com", :password => "Peter")
-Manager.create(:name => "Susan", :email => "susanproject@email.com", :password => "Susan")
+Manager.create(:name => "Mike", :email => "mikeprojects@email.com", :password => "Mike")
+Manager.create(:name => "Peter", :email => "peterprojects@email.com", :password => "Peter")
+Manager.create(:name => "Susan", :email => "susanprojects@email.com", :password => "Susan")
 
 
 Project.create(:name => "Spring St", :project_type => "reconstruction", :start_date => "Jan. 01, 2019", :due_date => Date.today.next, :manager_id => Manager.first.id )
