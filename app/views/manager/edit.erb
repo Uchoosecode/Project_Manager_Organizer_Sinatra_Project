@@ -1,6 +1,7 @@
 <h1>Update Your Account</h1>
 
 <form action="/manager/<%= @manager.id %>" method="post">
+
     <input type="hidden" name="_method" value="patch">
     <div>
         <label for="name">Name: </label>
@@ -16,4 +17,5 @@
     </div>
     
     <input type="submit" value="Update Account">
+
 </form>
