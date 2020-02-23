@@ -1,27 +1,60 @@
 class ManagersController < ApplicationController
 
-    get '/signup' do
-        erb :"/manager/new"
+  get '/signup' do
+    erb :"/manager/new"
+  end
+    
+  post '/signup' do
+
+    manager = Manager.new(params["managers"])
+        
+    if manager.save
+      session[:manager_id] = manager.id
+      redirect to "/manager/#{manager.id}"
+        
+    else
+      @errors = managers.errors.full_messages
+      erb :"/manager/new"
+    end
+  end
+
+  get '/manager/:id' do
+        
+    @manager = Manager.find_by(params[:id])
+    erb :"/manager/show"
+  end
+       
+  post '/manager/' do
+    erb  :"/projects"
+  end
+
+  get '/manager/:id/edit' do
+    @manager = Manager.find_by_id(params[:id])
+       
+    erb :"/edit"
+  end
+        
+  patch '/manager/:id' do
+    @manager = Manager.find_by_id(params[:id])
+        
+    if @manager.update(params[:managers])
+        redirect to "/manager"
+            
+    else
+        erb :"manager/edit"
+    end
+  end
+
+  delete "/manager/:id" do
+    @manager = current_manager
+    # @manager = Manager.find_by_id(params[:id])
+    # binding.pry
+
+    if @manager 
+        @manager.destroy
     end
     
-    post '/signup' do
-
-        manager = Author.new(params["manager"])
+    redirect to "/"
     
-        if manager.save
-          session[:manager_id] = manager.id
-          redirect to "/manager"
-        
-        else
-          @errors = manager.errors.full_messages
-          erb :"/manager/new"
-        end
-      end
-
-      get '/manager/:id' do
-        # binding.pry
-        @manager = Manager.find_by_id(params[:id])
-        erb :"/manager/show"
-      end
-        
+  end
 end
