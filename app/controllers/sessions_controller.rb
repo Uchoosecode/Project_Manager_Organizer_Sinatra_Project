@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
         erb :"/sessions/new"
     end
 
-
     post '/login' do
         manager = Manager.find_by(email: params[:manager][:email])
         # binding.pry
