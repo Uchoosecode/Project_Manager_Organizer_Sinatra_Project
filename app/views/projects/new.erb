@@ -17,5 +17,11 @@
         <label for="due_date">Project Due Date:</label>
         <input type="text" name="projects[due_date]" :id="due_date">
     </div>
+    <div>
+        <label for="manager_id">Manager ID: </label>
+        <input type="integer" name="projects[manager_id]" :id="manager_id" value="<%= current_manager[:id] %>">
+        <% #binding.pry%>
+    </div>
+    
     <input type="submit" value="Create Project">
 </form>
