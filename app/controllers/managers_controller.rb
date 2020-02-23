@@ -45,11 +45,9 @@ class ManagersController < ApplicationController
     end
   end
 
-  delete "/manager/:id" do
+  delete "/manager" do
     @manager = current_manager
-    # @manager = Manager.find_by_id(params[:id])
-    # binding.pry
-
+    
     if @manager 
         @manager.destroy
     end
