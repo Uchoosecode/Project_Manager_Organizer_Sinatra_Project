@@ -1,18 +1,15 @@
 <h1><%= current_manager.name %> Home Page</h1>
+    <ul>
+        <% @projects = current_manager.projects %>
+    
+        <% @projects.each do |project| %>
+   
+            <li> <a href="/projects/<%=project.id%>"><%= project.name %> </a></li>
+        <% end %>
+    </ul>
 
-<div>
-
-    <form action="/projects" method="post">
-        <input type="hidden" name="_method" value="patch">
-        <input type="submit" value="Edit Projects">
-    </form>
-
-    <form action="/projects/new" method="post">
-        <input type="submit" value="Create Project">
-    </form>
-
-    <form action="/projects" method="get">
-        <input type="submit" value="View All Projects">
-    </form>
-
-</div>
+    <div>
+        <form action="/projects/new" method="post">
+            <input type="submit" value="Create Project">
+        </form>
+    </div>
