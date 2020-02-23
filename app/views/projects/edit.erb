@@ -1,6 +1,7 @@
 <h1>Edit Your Project</h1>
 
 <form action="/projects/<%= @projects.id %>" method="post">
+    
     <input type="hidden" name="_method" value="patch">
     <div>
         <label for="name">Project Name: </label>
@@ -18,5 +19,6 @@
         <label for="due_date">Project Due Date:</label>
         <input type="text" name="projects[due_date]" :id="due_date" value="<%= @projects.due_date %> ">
     </div>
+    
     <input type="submit" value="Edit Project">
 </form>
