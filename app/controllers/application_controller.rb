@@ -14,18 +14,18 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-    
-    def logged_in?
-      !!current_manager
+  def logged_in?
+    !!current_manager
+  end
+  
+  def current_manager
+    Manager.find_by(id: session[:manager_id])
+  end
+  
+  def redirect_not_logged_in
+    if !logged_in?
+      redirect '/'
     end
-    
-    def current_manager
-      Manager.find_by(id: session[:manager_id])
-    end
-    
-    def redirect_not_logged_in
-      if !logged_in?
-        redirect '/'
-      end
-    end
+  end
 end
+    
