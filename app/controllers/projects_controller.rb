@@ -13,7 +13,6 @@ class ProjectsController < ApplicationController
     patch '/projects' do
         @projects = Project.find_by_id(params[:id])
         
-        # binding.pry
         if @projects.update(params[:project])
           redirect to "/projects"
         
@@ -46,8 +45,12 @@ class ProjectsController < ApplicationController
         
     get '/projects/:id/edit' do
         @projects = Project.find_by_id(params[:id])
-        
+        if @projects.manager == current_manager
+
         erb :"projects/edit"
+        else
+        redirect "/"
+        end
     end
     
     patch '/projects/:id' do
@@ -69,8 +72,5 @@ class ProjectsController < ApplicationController
         end
         
         redirect to "/projects"
-        
     end
-        
-
 end
