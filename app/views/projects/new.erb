@@ -1,4 +1,7 @@
 <h1>Create a New Project</h1>
+<% if @errors %>
+    <p id="errors"><%= @errors.to_sentence %></p>
+<% end %>
 
 <form action="/projects/new" method="post">
     <div>
@@ -20,7 +23,6 @@
     <div>
         <label for="manager_id">Manager ID: </label>
         <input type="integer" name="projects[manager_id]" :id="manager_id" value="<%= current_manager[:id] %>">
-        <% #binding.pry%>
     </div>
     
     <input type="submit" value="Create Project">
