@@ -1,7 +1,7 @@
 class ManagersController < ApplicationController
 
   get '/signup' do
-    erb :"/manager/new"
+    erb :"/managers/new"
   end
     
   post '/signup' do
@@ -10,42 +10,42 @@ class ManagersController < ApplicationController
         
     if manager.save
       session[:manager_id] = manager.id
-      redirect to "/manager/#{manager.id}"
+      redirect to "/managers/#{manager.id}"
         
     else
-      @errors = managers.errors.full_messages
-      erb :"/manager/new"
+      @errors = manager.errors.full_messages
+      erb :"/managers/new"
     end
   end
 
-  get '/manager/:id' do
+  get '/managers/:id' do
         
     @manager = Manager.find_by(params[:id])
-    erb :"/manager/show"
+    erb :"/managers/show"
   end
        
-  post '/manager/' do
+  post '/managers/' do
     erb  :"/projects"
   end
 
-  get '/manager/:id/edit' do
+  get '/managers/:id/edit' do
     @manager = Manager.find_by_id(params[:id])
        
-    erb :"/edit"
+    erb :"/managers/edit"
   end
-        
-  patch '/manager/:id' do
+ 
+  patch '/managers/:id' do
     @manager = Manager.find_by_id(params[:id])
         
-    if @manager.update(params[:managers])
-        redirect to "/manager"
+    if @manager.update(params[:manager])
+        redirect to "/managers/#{current_manager.id}"
             
     else
-        erb :"manager/edit"
+        erb :"managers/edit"
     end
   end
 
-  delete "/manager" do
+  delete "/managers" do
     @manager = current_manager
     
     if @manager 
