@@ -1,4 +1,7 @@
 <h1>Edit Your Project</h1>
+<% if @errors %>
+    <p id="errors"><%= @errors.to_sentence %></p>
+<% end %>
 
 <form action="/projects/<%= @projects.id %>" method="post">
     
