@@ -19,7 +19,13 @@ class ApplicationController < Sinatra::Base
   end
   
   def current_manager
-    Manager.find_by(id: session[:manager_id])
+    @the_manager = Manager.find_by(id: session[:manager_id])
+    # variable to helps the authenticate without having to go to the db every request.
+    if !the_manager
+      @the_manager = Manager.find_by(id: session[:manager_id])
+    end
+
+      @the_manager
   end
   
   def redirect_not_logged_in
