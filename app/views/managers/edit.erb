@@ -1,6 +1,9 @@
 <h1>Update Your Account</h1>
+<% if @errors %>
+    <p id="errors"><%= @errors.to_sentence %></p>
+<% end %>
 
-<form action="/manager/<%= @manager.id %>" method="post">
+<form action="/managers/<%= @manager.id %>" method="post">
 
     <input type="hidden" name="_method" value="patch">
     <div>

@@ -1,4 +1,7 @@
 <h1>Manager Sign Up Form</h1>
+<% if @errors %>
+    <p id="errors"><%= @errors.to_sentence %></p>
+<% end %>
 
 <form action="/signup" method="post">
     
