@@ -20,7 +20,7 @@ class ManagersController < ApplicationController
 
   get '/managers/:id' do
         
-    @manager = Manager.find_by(params[:id])
+    manager_params
     erb :"/managers/show"
   end
        
@@ -29,13 +29,13 @@ class ManagersController < ApplicationController
   end
 
   get '/managers/:id/edit' do
-    @manager = Manager.find_by_id(params[:id])
+    manager_params
        
     erb :"/managers/edit"
   end
  
   patch '/managers/:id' do
-    @manager = Manager.find_by_id(params[:id])
+    manager_params
         
     if @manager.update(params[:manager])
         redirect to "/managers/#{current_manager.id}"
@@ -53,6 +53,10 @@ class ManagersController < ApplicationController
     end
     
     redirect to "/"
+  end
     
+  def manager_params
+    params = current_manager
+    @manager ||= params
   end
 end

@@ -73,4 +73,5 @@ class ProjectsController < ApplicationController
         
         redirect to "/projects"
     end
+
 end
